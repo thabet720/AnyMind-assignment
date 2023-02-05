@@ -1,0 +1,24 @@
+type Query {
+	salesPerHour(startDateTime: String!,endDateTime:String!): [Sale]
+}
+type Mutation {
+	pay(price: Float,priceModifier: Float,paymentMethod: PaymentMethod,datetime: String):PaymentResponse
+}
+type Sale {
+	datetime: String
+	sales: String
+	points: Int
+}
+
+enum PaymentMethod{
+	CASH
+	CASH_ON_DELIVERY
+	VISA 
+	MASTERCARD
+	AMEX
+	JCB 
+}
+type PaymentResponse {
+	finalPrice: Float
+	points: Int
+}
