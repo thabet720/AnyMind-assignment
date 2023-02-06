@@ -4,6 +4,7 @@ import com.anymind.points.dtos.request.PaymentRequest;
 import com.anymind.points.dtos.response.PaymentResponse;
 import com.anymind.points.services.PaymentService;
 import com.anymind.points.validation.util.BeanValidatorUtil;
+import com.anymind.points.validation.util.RuleValidatorUtil;
 
 import java.text.ParseException;
 
@@ -22,6 +23,7 @@ public class PaymentController {
 	public PaymentResponse pay(@Argument double price, @Argument double priceModifier, @Argument String paymentMethod,@Argument String datetime) throws ParseException {
 		PaymentRequest paymentRequest = new PaymentRequest(price, priceModifier, paymentMethod, datetime);
 		BeanValidatorUtil.validate(paymentRequest);
+		RuleValidatorUtil.validate(paymentRequest);
 		return paymentService.savePayment(paymentRequest);
 	}
 }

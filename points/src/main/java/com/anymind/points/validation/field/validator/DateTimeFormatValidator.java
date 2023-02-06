@@ -11,14 +11,14 @@ import javax.validation.ConstraintValidatorContext;
 
 public class DateTimeFormatValidator implements ConstraintValidator<IsDateFormatValid, String> {
 
-	private String format;
+	private String format = "yyyy-MM-dd'T'hh:mm:ss'z'";
 	
 	
 	@Override
 	public void initialize(IsDateFormatValid constraintAnnotation) {
 		format = constraintAnnotation.format();
 	}
-
+	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		
 		return isValidFormat(format, value);
@@ -37,7 +37,7 @@ public class DateTimeFormatValidator implements ConstraintValidator<IsDateFormat
         } catch (ParseException ex) {
         	return false;
         }
-        return  date != null;
+        return  true;
     }
 
 }

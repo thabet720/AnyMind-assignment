@@ -20,7 +20,7 @@ public class PaymentRequest extends BaseRequest {
 	private String paymentMethod;
 	@NotNull(message = "must not be null")
 	@NotBlank(message = "must not be empty")
-	@IsDateFormatValid
+	@IsDateFormatValid(message = " has an Invalid format")
 	private String datetime;
 	
 	
