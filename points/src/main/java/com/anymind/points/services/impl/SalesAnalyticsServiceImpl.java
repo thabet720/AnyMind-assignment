@@ -27,7 +27,8 @@ public class SalesAnalyticsServiceImpl implements SalesAnalyticsService{
 	public List<SalesAnalyticsResponse> getSalesAndPointsPerHour( SalesAnalyticsRequest request) throws ParseException {
 		
 		List<SalesAnalyticsResponse> analytics = new ArrayList<SalesAnalyticsResponse>();
-		for(ISalesAnalaytics sales: dao.getSalesAndPointsByHourAndInterval(DateTimeUtil.getTimestampFromString(request.getStartDateTime(), "yyyy-MM-dd'T'hh:mm:ss'z'"),DateTimeUtil.getTimestampFromString(request.getEndDateTime(), "yyyy-MM-dd'T'hh:mm:ss'z'"))){
+		List<ISalesAnalaytics> salesAnalytics = dao.getSalesAndPointsByHourAndInterval(DateTimeUtil.getTimestampFromString(request.getStartDateTime(), "yyyy-MM-dd'T'hh:mm:ss'z'"),DateTimeUtil.getTimestampFromString(request.getEndDateTime(), "yyyy-MM-dd'T'hh:mm:ss'z'"));
+		for(ISalesAnalaytics sales:salesAnalytics ){
 			analytics.add(conversionService.convert(sales, SalesAnalyticsResponse.class));
 		}
 		return analytics;

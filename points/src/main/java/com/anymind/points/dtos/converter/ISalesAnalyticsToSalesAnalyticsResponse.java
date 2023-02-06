@@ -5,7 +5,9 @@ import com.anymind.points.entities.ISalesAnalaytics;
 import com.anymind.points.utils.DateTimeUtil;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ISalesAnalyticsToSalesAnalyticsResponse implements Converter<ISalesAnalaytics, SalesAnalyticsResponse> {
 
 	@Override

@@ -22,6 +22,12 @@ public class PaymentRequest extends BaseRequest {
 	@NotBlank(message = "must not be empty")
 	@IsDateFormatValid
 	private String datetime;
+	
+	
+
+	public PaymentRequest() {
+		super();
+	}
 
 	public PaymentRequest(double price, double priceModifier, String paymentMethod, String datetime) {
 		super();

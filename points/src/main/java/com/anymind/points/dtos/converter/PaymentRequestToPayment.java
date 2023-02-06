@@ -7,7 +7,8 @@ import com.anymind.points.utils.DateTimeUtil;
 import java.text.ParseException;
 
 import org.springframework.core.convert.converter.Converter;
-
+import org.springframework.stereotype.Component;
+@Component
 public class PaymentRequestToPayment implements Converter<PaymentRequest, Payment> {
 
 	@Override

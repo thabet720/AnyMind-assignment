@@ -19,8 +19,6 @@ public class DateTimeFormatValidator implements ConstraintValidator<IsDateFormat
 		format = constraintAnnotation.format();
 	}
 
-
-	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		
 		return isValidFormat(format, value);
