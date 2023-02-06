@@ -20,12 +20,12 @@ import org.springframework.stereotype.Controller;
 
 public class SalesController {
 	@Autowired
-	SalesAnalyticsService s;
+	SalesAnalyticsService salesAnalyticService;
 	@QueryMapping
 	public List<SalesAnalyticsResponse> salesPerHour(@Argument String startDateTime,@Argument String endDateTime) throws ParseException {
 		 SalesAnalyticsRequest request = new SalesAnalyticsRequest(startDateTime, endDateTime);
 		 RuleValidatorUtil.validate(request);
 		 BeanValidatorUtil.validate(request);
-		return s.getSalesAndPointsPerHour( request);
+		return salesAnalyticService.getSalesAndPointsPerHour( request);
 	}
 }

@@ -34,7 +34,7 @@ public class Payment{
 		this.paymentDate = paymentDate;
 	}
 	public Payment() {
-		// TODO Auto-generated constructor stub
+
 	}
 	public double getPrice() {
 		return price;
